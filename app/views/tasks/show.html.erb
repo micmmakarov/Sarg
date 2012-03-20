@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @task.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @task.description %>
+</p>
+
+<p>
+  <b>Time:</b>
+  <%= @task.time %>
+</p>
+
+<p>
+  <b>Note:</b>
+  <%= @task.note %>
+</p>
+
+<%= form_for([@task, @task.gains.build]) do |f| %>
+    <div class="field">
+      <%= f.label :status %><br />
+      <%= f.check_box :status %>
+    </div>
+    <div class="field">
+      <%= f.label :note %><br />
+      <%= f.text_area :note %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+   <% end %>
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>

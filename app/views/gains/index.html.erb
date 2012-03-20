@@ -1,0 +1,13 @@
+
+
+<h3>Gains</h3>
+
+<ul>
+<%   @gains.each do |gain|    %>
+<li>
+<%= gain.note %>
+<%= gain.task.title %>
+</li>
+</ul>
+
+<% end %>

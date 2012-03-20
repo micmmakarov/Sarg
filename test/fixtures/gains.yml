@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  status: false
+  note: MyText
+  task: 
+  user: 
+
+two:
+  status: false
+  note: MyText
+  task: 
+  user: 
