@@ -58,10 +58,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gains_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="gains_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/gains_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="49" selection-start="892" selection-end="892" vertical-scroll-proportion="0.88609713">
+            <state line="36" column="49" selection-start="892" selection-end="892" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Gemfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="10" selection-start="406" selection-end="406" vertical-scroll-proportion="0.5410385">
               <folding />
             </state>
           </provider>
@@ -103,15 +112,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="2" selection-start="283" selection-end="283" vertical-scroll-proportion="-5.8846154">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -122,7 +122,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/tasks/_single.html.erb" />
         <option value="$PROJECT_DIR$/app/views/tasks/_task.html.erb" />
         <option value="$PROJECT_DIR$/app/models/task.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
@@ -138,6 +137,7 @@
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/challenges/show.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/gains_controller.rb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
       </list>
     </option>
   </component>
@@ -757,13 +757,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/tasks/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="28" selection-start="229" selection-end="229" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/gains/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="4" selection-start="105" selection-end="105" vertical-scroll-proportion="0.0">
@@ -862,7 +855,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/gains_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="49" selection-start="892" selection-end="892" vertical-scroll-proportion="0.88609713">
+        <state line="36" column="49" selection-start="892" selection-end="892" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="10" selection-start="406" selection-end="406" vertical-scroll-proportion="0.5410385">
           <folding />
         </state>
       </provider>
