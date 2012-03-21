@@ -22,6 +22,7 @@
 
 <p id="notice"><%= notice %></p>
 
+<div style="background:gray">
 <p>
   <b>Title:</b>
   <%= @challenge.title %>
@@ -42,24 +43,40 @@
   <%= @challenge.time %>
 </p>
 
+</div>
+<% # render @challenge.tasks %>
 
-<%= render @challenge.tasks %>
-
-<%= render "tasks/form" %>
 
 
 <% @challenge.tasks.each do |task| %>
 
-<h2><%= task.title %>: </h2> 
-    <% task.gains.all(:conditions => {:user_id => current_user.id}).each do |gain| %>
+    <h2>Task: <%= task.title %></h2>
+    Description: <%= task.description %><br>
     
-          <%= gain.status %>
-          <a href="#"  class="button" id="<%= gain.id %>">Complete</a>
+    <% i=1 %>
+    
+    <% task.gains.all(:conditions => {:user_id => current_user.id.to_i}).each do |gain| %>
+
+        <h3>Status: <%= gain.status %></h3>
+        <a href="#" class="button" id="<% gain.id %>">DONE (If you press here, AJAX will change status of task to DONE)</a>
+
+        <% i=7 %>
         
     <% end %>
+
+    <% if i==1 then %>
+
+        <a href="#" class="button" id="-1">DONE (If you press here, AJAX will change status of task to DONE)</a>
+
+    <% end %>
+
+
     <br>
-    
+
 <% end %>
+
+<%= render "tasks/form" %>
+
 
 <%= link_to 'Edit', edit_challenge_path(@challenge) %> |
 <%= link_to 'Back', challenges_path %>
