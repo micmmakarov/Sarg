@@ -12,7 +12,9 @@
 
             event.preventDefault();
             var id1=$(this).attr("id");
-            $.post("/ajax_complete",{status:true, id:id1});
+            var token1=$(this).attr("data-token");
+            if (token1=="Coo1?") {status1=false;} else {status1=true;}
+            $.post("/ajax_complete",{status:status1, id:id1,token1: token1});
         });
 
     });
@@ -54,11 +56,14 @@
     Description: <%= task.description %><br>
     
     <% i=1 %>
-    
+
+    <h2></h2><a href="#" class="button" id="<%= task.gains.where(user_id: current_user.id.to_i).first.id %>" data-token="Coo1?">UNDONE (AJAX will change status of task to UNDONE)</a></h2>
+
+
     <% task.gains.all(:conditions => {:user_id => current_user.id.to_i}).each do |gain| %>
 
         <h3>Status: <%= gain.status %></h3>
-        <a href="#" class="button" id="<% gain.id %>">DONE (If you press here, AJAX will change status of task to DONE)</a>
+        <a href="#" class="button" id="<%= gain.id %>" data-token="Coo1?">UNDONE (AJAX will change status of task to UNDONE)</a>
 
         <% i=7 %>
         
@@ -67,7 +72,7 @@
     <% if i==1 then %>
         <!-- To create new one, using -1 in id -->
         No progresss
-        <a href="#" class="button" id="-1">DONE (If you press here, AJAX will change status of task to DONE)</a>
+        <a href="#" class="button" id="<%= task.id %>" data-token="Cool?">DONE (If you press here, AJAX will change status of task to DONE)</a>
 
     <% end %>
 

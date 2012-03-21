@@ -9,6 +9,15 @@ class User < ActiveRecord::Base
 
   has_many :gains
 
+  after_create :setup_gains
+
+  def setup_gains
+    tasks = self.tasks.all()
+    tasks.each do
+      task.gains.create(user_id: @user.id)
+    end
+
+  end
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token.extra.raw_info

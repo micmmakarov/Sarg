@@ -8,7 +8,7 @@ class CreateGains < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :gains, :task_id
-    add_index :gains, :user_id
+    add_index :gains, [:task_id, :user_id], unique: true
+
   end
 end

@@ -29,18 +29,19 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @user }
-    end
+    end.find(params[:id])
   end
+
+end
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
-  end
-
+    @user = User
   # POST /users
   # POST /users.json
   def create
     @user = User.new(params[:user])
+
 
     respond_to do |format|
       if @user.save

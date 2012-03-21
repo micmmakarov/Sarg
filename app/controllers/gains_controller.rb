@@ -27,16 +27,17 @@ class GainsController < ApplicationController
 
 def ajax_complete
 
-
-  if params[:id].to_i==-1 then
-    @Gain=Gain.new(status: params[:status], :user_id => current_user.id.to_i)
+  @Gainz=Gain.all();
+  if params[:token1].to_s=="Cool?" then
+    @Gain=Gain.create(status: params[:status], :user_id => current_user.id.to_i, :task_id => params[:id].to_i)
+    txt = "Creating a New one!"
   else
     @Gain = Gain.find(params[:id])
     @Gain.update_attributes(status: params[:status])
+    txt = "Updating old one"
   end
 
-  render :text => "Hello!!"+ params[:status].to_s
-
+  render :text => "Hello!!"+ params[:status].to_s + " " +txt +" " +@Gainz.count.to_s
 end
 
 end

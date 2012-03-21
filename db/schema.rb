@@ -31,8 +31,7 @@ ActiveRecord::Schema.define(:version => 20120304225049) do
     t.datetime "updated_at"
   end
 
-  add_index "gains", ["task_id"], :name => "index_gains_on_task_id"
-  add_index "gains", ["user_id"], :name => "index_gains_on_user_id"
+  add_index "gains", ["task_id", "user_id"], :name => "index_gains_on_task_id_and_user_id", :unique => true
 
   create_table "tasks", :force => true do |t|
     t.string   "title"
