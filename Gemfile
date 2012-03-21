@@ -23,6 +23,7 @@ group :production do
   gem 'pg'
   gem 'execjs'
   gem 'therubyracer'
+  gem 'omniauth-facebook'
 end
 
 gem 'heroku'
