@@ -7,14 +7,15 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name
 
-  has_many :gains
+  has_many :gains, :dependent => :destroy
 
   after_create :setup_gains
 
   def setup_gains
-    tasks = self.tasks.all()
-    tasks.each do
-      task.gains.create(user_id: @user.id)
+
+    tasks = Task.all()
+    tasks.each do |task|
+      task.gains.create(user_id: self.id)
     end
 
   end

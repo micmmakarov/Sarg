@@ -7,6 +7,8 @@ App3::Application.routes.draw do
     resources :tasks
   end
 
+
+
   post "ajax_complete", :to =>"gains#ajax_complete"
 
 
@@ -17,7 +19,9 @@ App3::Application.routes.draw do
     resources :gains
 
   end
-  resources :users
+  resources :users do
+    resources :gains
+  end
 
   get "home/index"
 
