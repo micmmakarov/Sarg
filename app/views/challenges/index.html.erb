@@ -1,34 +1,21 @@
-<h1>Listing challenges</h1>
+<% title "Your Challenges" %>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Note</th>
-    <th>Time</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <div class="ui-body ui-body-c">
 
-<% @challenges.each do |challenge| %>
-  <tr>
-    <td><%= challenge.title %></td>
-    <td><%= challenge.description %></td>
-    <td><%= challenge.note %></td>
-    <td><%= challenge.time %></td>
-    <td><%= link_to 'Show', challenge %></td>
-    <td><%= link_to 'Edit', edit_challenge_path(challenge) %></td>
-    <td><%= link_to 'Destroy', challenge, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+  <ul data-role="listview" data-inset="true" data-filter="false" class="space-btm space-top">
+  	<% @challenges.each do |challenge| %>
+      <li>
+        <%= link_to raw(challenge.title + ' <span>' + challenge.description + ' ' + challenge.time.strftime('%H:%M') + '</span>'), challenge %>
+        <div class="controls" style="display: none">
+          <%= link_to 'Show', challenge %>
+          <%= link_to 'Destroy', challenge, confirm: 'Are you sure?', method: :delete %>
+          <%= link_to 'Edit', edit_challenge_path(challenge) %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 
-<br />
+  <%= link_to 'New Challenge', new_challenge_path, "data-role" => "button", "data-icon" => "gear", "data-theme" => "a" %>
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete, "data-role" => "button", "data-icon" => "gear", "data-theme" => "b") %>
 
-<%= link_to 'New Challenge', new_challenge_path %>
-
-
-
-
-<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+  </div>

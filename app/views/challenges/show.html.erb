@@ -1,3 +1,67 @@
+<% title "Tasks" %>
+
+<div class="ui-body ui-body-c">
+
+<p id="notice"><%= notice %></p>
+
+<div>
+<p>
+  <b>Challenge:</b>
+  <%= @challenge.title %>
+</p>
+
+<p>
+  <%= @challenge.description %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @challenge.note %>
+</p>
+
+<p>
+  <b>Time to complete:</b>
+  <%= @challenge.time %>
+</p>
+
+</div>
+<% # render @challenge.tasks %>
+
+
+
+<% @challenge.tasks.each do |task| %>
+
+    <h2>Task: <%= task.title %></h2>
+    Description: <%= task.description %>
+    
+    <% i=1 %>
+
+    <!-- <a href="#" class="button" id="<%= task.gains.where(user_id: current_user.id.to_i).first.id %>" data-token="Coo1?">UNDONE (AJAX will change status of task to UNDONE)</a></h2> -->
+
+    <%= link_to "Task", task %>
+    <% task.gains.all(:conditions => {:user_id => current_user.id.to_i}).each do |gain| %>
+
+<!--        <a href="#" class="button" id="<%= gain.id %>" data-token="Coo1?">UNDONE (AJAX will change status of task to UNDONE)</a> -->
+
+        <% i=7 %>
+        
+    <% end %>
+
+    <% if i==1 then %>
+        <!-- To create new one, using -1 in id -->
+        No progresss
+        <a href="#" class="button" id="<%= task.id %>" data-token="Cool?">DONE (If you press here, AJAX will change status of task to DONE)</a>
+
+    <% end %>
+
+<% end %>
+
+<%= render "tasks/form" %>
+
+
+<%= link_to 'Edit', edit_challenge_path(@challenge) %> |
+<%= link_to 'Back', challenges_path %>
+
 <script>
     $(function () {
 
@@ -20,69 +84,3 @@
     });
 
 </script>
-
-
-<p id="notice"><%= notice %></p>
-
-<div style="background:gray">
-<p>
-  <b>Title:</b>
-  <%= @challenge.title %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @challenge.description %>
-</p>
-
-<p>
-  <b>Note:</b>
-  <%= @challenge.note %>
-</p>
-
-<p>
-  <b>Time:</b>
-  <%= @challenge.time %>
-</p>
-
-</div>
-<% # render @challenge.tasks %>
-
-
-
-<% @challenge.tasks.each do |task| %>
-
-    <h2>Task: <%= task.title %></h2>
-    Description: <%= task.description %><br>
-    
-    <% i=1 %>
-
-    <h2></h2><a href="#" class="button" id="<%= task.gains.where(user_id: current_user.id.to_i).first.id %>" data-token="Coo1?">UNDONE (AJAX will change status of task to UNDONE)</a></h2>
-
-
-    <% task.gains.all(:conditions => {:user_id => current_user.id.to_i}).each do |gain| %>
-
-        <h3>Status: <%= gain.status %></h3>
-        <a href="#" class="button" id="<%= gain.id %>" data-token="Coo1?">UNDONE (AJAX will change status of task to UNDONE)</a>
-
-        <% i=7 %>
-        
-    <% end %>
-
-    <% if i==1 then %>
-        <!-- To create new one, using -1 in id -->
-        No progresss
-        <a href="#" class="button" id="<%= task.id %>" data-token="Cool?">DONE (If you press here, AJAX will change status of task to DONE)</a>
-
-    <% end %>
-
-
-    <br>
-
-<% end %>
-
-<%= render "tasks/form" %>
-
-
-<%= link_to 'Edit', edit_challenge_path(@challenge) %> |
-<%= link_to 'Back', challenges_path %>
