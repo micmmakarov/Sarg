@@ -1,43 +1,31 @@
 <% title "Listing Tasks" %>
 
+<div class="ui-body ui-body-c">
+
 <%=  current_user.id %>
 AND: <%= session[:current_user_id] %>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Time</th>
-    <th>Note</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @tasks.each do |task| %>
-  <tr>
-    <td><%= task.title %></td>
-    <td><%= task.description %></td>
-    <td><%= task.time %></td>
-    <td><%= task.note %></td>
-    <td><%= link_to 'Show', task %></td>
-    <td><%= link_to 'Edit', edit_task_path(task) %></td>
-    <td><%= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-   <tr>
-     <td colspan=5>
-       <% task.gains.each do |gain| %>
-       
-       <%=  gain.status %>
-       <%=  gain.note %>
-       <h1><%=  gain.user_id %></h1>
-                        and
-     <% end %>
-     </td>
-     
-   </tr>
-<% end %>
-</table>
+<ul data-role="listview" data-inset="true" data-filter="false">
 
-<br />
+  <% @tasks.each do |task| %>
+  <li>
+    <%= task.title %>
+    <%= task.description %>
+    <%= task.time %>
+    <%= task.note %>
+    <%= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete %>
+    <%= link_to 'Edit', edit_task_path(task) %>
+    <%= link_to 'Show', task %>
+
+   <% task.gains.each do |gain| %>
+     <%=  gain.status %>
+     <%=  gain.note %>
+     <%=  gain.user_id %>
+   <% end %>
+
+   </li>
+   <% end %>
+</ul>
 
 <%= link_to 'New Task', new_task_path %>
+</div>

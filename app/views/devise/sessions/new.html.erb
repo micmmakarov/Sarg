@@ -3,19 +3,27 @@
 <div class="ui-body ui-body-c">
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %>
-  <%= f.email_field :email %></div>
+  <div data-role="fieldcontain">
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
 
-  <div><%= f.label :password %>
+  <div data-role="fieldcontain"><%= f.label :password %>
   <%= f.password_field :password %></div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+  <div data-role="fieldcontain">
+    <% if devise_mapping.rememberable? -%>
+      <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+    <% end -%>
+  </div>
 
-  <div><%= f.submit "Sign in" %></div>
+  <div data-role="fieldcontain">
+  <%= f.submit "Sign in", "data-role" => "button", "data-theme" => "b" %>
+  </div>
 <% end %>
 
-<%= render "links" %>
+<div data-role="fieldcontain">
+  <%= render "links" %>
+</div>
 
 </div>

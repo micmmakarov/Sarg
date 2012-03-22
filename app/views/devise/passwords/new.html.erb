@@ -5,12 +5,11 @@
 <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %>
+  <div data-role="fieldcontain"><%= f.label :email %>
   <%= f.email_field :email %></div>
 
-  <div><%= f.submit "Send me reset password instructions" %></div>
+  <div data-role="fieldcontain"><%= f.submit "Send Instructions" %></div>
 <% end %>
 
-<%= render "links" %>
 
 </div>

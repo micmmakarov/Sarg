@@ -10,5 +10,9 @@ body {
 .space-top { margin-top: 30px; }
 
 .ui-btn-text span { font-weight: 300 }
+.ui-field-contain, fieldset.ui-field-contain {
+  padding: 1em 0;
+  border: none;
+}
 
 .devise_sessions_new a[data-rel="back"] { display: none }
