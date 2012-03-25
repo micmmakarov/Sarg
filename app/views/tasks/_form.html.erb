@@ -1,4 +1,3 @@
-<%= current_user.id %>
 <% if current_user.id==1 then %>
 
   <%= form_for([@challenge, @challenge.tasks.build]) do |f| %>
@@ -10,9 +9,10 @@
         <%= f.label :description %>
         <%= f.text_area :description %>
       </div>
-      <div class="field">
+      <div class="field time-selector">
         <%= f.label :time %>
-        <%= f.time_select :time %>
+        <%= time_select "task", "time", { :default => Time.now.change(:hour => 1), :simple_time_select => true, 
+        :minute_interval => 20, :time_separator => "<span class='separator'>:</span>", :start_hour => 10, :end_hour => 14 } %>
       </div>
       <div class="field">
         <%= f.label :note %>

@@ -15,4 +15,18 @@ body {
   border: none;
 }
 
-.devise_sessions_new a[data-rel="back"] { display: none }
+.devise_sessions_new a[data-rel="back"],
+.challenges_index a[data-rel="back"] { display: none }
+
+.time-selector .ui-btn {
+  width: 47%;
+  float: left;
+  font-size: 150%;
+}
+.time-selector .separator {
+  float: left;
+  margin-top: 18px;
+}
+.field {
+  overflow: hidden
+}
