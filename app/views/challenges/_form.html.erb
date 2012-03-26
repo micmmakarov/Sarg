@@ -23,11 +23,11 @@
     <%= f.label :note %>
     <%= f.text_area :note %>
   </div>
-  <div class="field">
+  <div class="field time-selector">
     <%= f.label :time %>
-    <%= f.time_select :time %>
-  </div>
+    <%= time_select "challenge", "time", { :default => Time.now.change(:hour => 1), :simple_time_select => true, 
+    :minute_interval => 20, :time_separator => "<span class='separator'>:</span>", :start_hour => 10, :end_hour => 14 } %>  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Create Challenge', "data-role" => "button", "data-icon" => "plus", "data-theme" => "e" %>
   </div>
 <% end %>

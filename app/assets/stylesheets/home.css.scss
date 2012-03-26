@@ -19,13 +19,15 @@ body {
 .challenges_index a[data-rel="back"] { display: none }
 
 .time-selector .ui-btn {
-  width: 47%;
+  width: 46%;
   float: left;
   font-size: 150%;
 }
 .time-selector .separator {
   float: left;
-  margin-top: 18px;
+  margin-top: 26px;
+  font-size: 150%;
+  font-weight: 700;
 }
 .field {
   overflow: hidden

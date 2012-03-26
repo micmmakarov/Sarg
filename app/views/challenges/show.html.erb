@@ -10,9 +10,9 @@
 
   <div>
 
-    <p>
+    <h2>
       <%= @challenge.description %>
-    </p>
+    </h2>
 
     <p>
       <b>Notes:</b>
@@ -21,7 +21,7 @@
 
     <p>
       <b>Time to complete:</b>
-      <%= @challenge.time %>
+      <%= @challenge.time.strftime('%H:%M') %>
     </p>
 
   </div>
